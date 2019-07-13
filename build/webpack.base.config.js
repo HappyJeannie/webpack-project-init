@@ -2,7 +2,8 @@ const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const env = process.env.NODE_ENV
+console.log(env)
 module.exports = {
   entry: path.resolve(__dirname, '../src/pages/index.js'),
   output: {
@@ -20,15 +21,17 @@ module.exports = {
             options:{
               publicPath: '../'
             }
-          }
-          ,'css-loader']
+          },
+          'css-loader',
+          'postcss-loader'
+        ]
       }
     ]
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      tempFilePath: path.resolve(__dirname, '../index.html')
+      template: path.resolve(__dirname, '../index.html')
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
