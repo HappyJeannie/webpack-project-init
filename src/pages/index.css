@@ -1,3 +1,13 @@
 h1{
     transition:all 0.4s;
 }
+img{
+    width: 100px;
+    height: 100px;
+}
+.bg{
+    width: 100px;
+    height: 100px;
+    background: url("~@assets/images/avatar.png") no-repeat center center;
+    background-size: contain;
+}

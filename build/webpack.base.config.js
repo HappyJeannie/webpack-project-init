@@ -25,6 +25,21 @@ module.exports = {
           'css-loader',
           'postcss-loader'
         ]
+      },
+      {
+        test:/\.(png|jpg|gif)$/,
+        use:{
+          loader: "url-loader",
+          options: {
+            limit:1024 * 5
+          }
+        }
+      },
+      {
+        test:/\.html$/,
+        use:{
+          loader: "html-withimg-loader"
+        }
       }
     ]
   },
